@@ -89,7 +89,19 @@ length(unique(moby.word.v))
 
 # We can answer some of these questions with a "contingency" table.
 moby.freqs.t <- table(moby.word.v)
-
 sorted.moby.freqs.t <- sort(moby.freqs.t, decreasing = TRUE)
 
-sorted.moby.freqs.t[1:10]
+
+
+## Practice
+
+# Challenge is to plot the frequence of top ten words to seeing
+# if the word usage conforms to Zipf's law.   
+plot(sorted.moby.freqs.t[1:10])
+
+# A nicer plot
+plot(sorted.moby.freqs.t[1:10],
+     type = "b",
+     xlab = "Top Ten Words",
+     ylab = "Word Count", xaxt = "n")
+axis(1,1:10, labels = names(sorted.moby.freqs.t[1:10]))
